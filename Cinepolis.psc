@@ -1,9 +1,10 @@
 Proceso Cinepolis
 	
-	definir peli,boletas,s,s1,s2,s3 como entero 
+	definir peli,boletas,s,s1,s2,s3,butaca como entero 
 	definir rta como caracter
 	dimension s[25], s1[25] ,s2[25],s3[25]
 	salas(s,s1,s2,s3)
+	butaca= 0
 	escribir "***********************"
 	escribir "Bienvenido a Cinepolis"
 	escribir "*********************** "
@@ -45,13 +46,13 @@ sino
 FinSi
 Mientras Que validacion=verdadero
 segun peli hacer
-	1: sala(s)
+	1: sala(s,boletas,butaca)
 		
-	2: sala1(s1)
+	2: sala1(s1,boletas,butaca)
 		
-	3: sala2(s2)
+	3: sala2(s2,boletas,butaca)
 		
-	4: sala3(s3)
+	4: sala3(s3,boletas,butaca)
 FinSegun
 FinProceso
 Funcion salas(s,s1,s2,s3)
@@ -63,7 +64,8 @@ Funcion salas(s,s1,s2,s3)
 	FinPara
 	
 FinFuncion
-SubProceso sala(s por referencia )
+SubProceso sala(s,boletas,butaca)
+	escribir "estos son nuestro asientos disponibles"
 	escribir " ________________________ "
 	escribir  "[",s[0] "]  [", s[1] "]  [", s[2] "]  [",s[3] "]  [",s[4] "]"
 	escribir " ------------------------ "
@@ -75,8 +77,12 @@ SubProceso sala(s por referencia )
 	escribir " ------------------------ "
 	escribir  "[",s[20] "]  [", s[21] "]  [", s[22] "]  [",s[23] "]  [",s[24] "]"
 	escribir " ------------------------ "
+	escribir "ingrese el numero de asiento que desea" 
+	escribir "asientos con el numero 0 ya se encuentran reservados "
+	leer butaca 
 FinSubProceso
-SubProceso sala1(s1)
+SubProceso sala1(s1,boletas,butaca)
+	escribir "estos son nuestro asientos disponibles"
 	escribir " ________________________ "
 	escribir  "[",s1[0] "]  [", s1[1] "]  [", s1[2] "]  [",s1[3] "]  [",s1[4] "]"
 	escribir " ------------------------ "
@@ -88,8 +94,12 @@ SubProceso sala1(s1)
 	escribir " ------------------------ "
 	escribir  "[",s1[20] "]  [", s1[21] "]  [", s1[22] "]  [",s1[23] "]  [",s1[24] "]"
 	escribir " ------------------------ "
+	escribir "ingrese el numero de asiento que desea" 
+	escribir "asientos con el numero 0 ya se encuentran reservados "
+	leer butaca 
 FinSubProceso
-SubProceso sala2(s2)
+SubProceso sala2(s2,boletas,butaca)
+	escribir "estos son nuestro asientos disponibles"
 	escribir " ________________________ "
 	escribir  "[",s2[0] "]  [", s2[1] "]  [", s2[2] "]  [",s2[3] "]  [",s2[4] "]"
 	escribir " ------------------------ "
@@ -101,8 +111,12 @@ SubProceso sala2(s2)
 	escribir " ------------------------ "
 	escribir  "[",s2[20] "]  [", s2[21] "]  [", s2[22] "]  [",s2[23] "]  [",s2[24] "]"
 	escribir " ------------------------ "
+	escribir "ingrese el numero de asiento que desea" 
+	escribir "asientos con el numero 0 ya se encuentran reservados "
+	leer butaca 
 FinSubProceso
-SubProceso sala3(s3)
+SubProceso sala3(s3,boletas ,butaca)
+	escribir "estos son nuestro asientos disponibles"
 	escribir " ________________________ "
 	escribir  "[",s3[0] "]  [", s3[1] "]  [", s3[2] "]  [",s3[3] "]  [",s3[4] "]"
 	escribir " ------------------------ "
@@ -114,5 +128,8 @@ SubProceso sala3(s3)
 	escribir " ------------------------ "
 	escribir  "[",s3[20] "]  [", s3[21] "]  [", s3[22] "]  [",s3[23] "]  [",s3[24] "]"
 	escribir " ------------------------ "
+	escribir "ingrese el numero de asiento que desea" 
+	escribir "asientos con el numero 0 ya se encuentran reservados "
+	leer butaca 
 FinSubProceso
 
