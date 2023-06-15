@@ -1,6 +1,6 @@
 Proceso Cinepolis
 	
-	definir peli,boletas,s,s1,s2,s3,butaca como entero 
+	definir peli,boletas,s,s1,s2,s3,butaca,horario como entero 
 	definir rta como caracter
 	dimension s[25], s1[25] ,s2[25],s3[25]
 	salas(s,s1,s2,s3)
@@ -34,20 +34,38 @@ Proceso Cinepolis
 				validacion<-falso 
 			FinSi
 		Mientras Que validacion=verdadero
+	
+			escribir " "
+			escribir "*********************** "
+			escribir "horarios disponibles"
+			escribir "*********************** "
+			escribir "(1)20hs"
+			escribir "(2)22hs"
 		repetir
+			leer horario
+			si (horario<1 o horario>2)
+				validacion<-Verdadero
+			escribir"ingrese una opcion valida"
+			sino 
+				validacion<-falso 
+			FinSi
+		Mientras Que validacion=verdadero
 			escribir " "
 			escribir "*********************** "
 			escribir "ingrese la cantidad de boletas que desea "
 			escribir "*********************** "
-			leer boletas 
+		repetir
+				leer boletas 
+			Mientras Que 
 			si (boletas<1 o boletas>25)
 				validacion<-Verdadero
+				escribir"ingrese una opcion valida"
 			sino 
 				validacion<-falso 
 			FinSi
 		Mientras Que validacion=verdadero
 		segun peli hacer
-			1: sala(s,boletas,butaca)
+			1:sala(s,boletas,butaca)
 				
 			2: sala1(s1,boletas,butaca)
 				
@@ -69,7 +87,7 @@ Funcion salas(s,s1,s2,s3)
 	
 FinFuncion
 SubProceso sala(s,boletas Por Referencia,butaca Por Referencia)
-	para i=0 hasta boletas con paso 1 hacer
+	para i=0 hasta boletas-1 con paso 1 hacer
 		escribir "estos son nuestro asientos disponibles"
 		escribir " ________________________ "
 		escribir  "[",s[0] "]  [", s[1] "]  [", s[2] "]  [",s[3] "]  [",s[4] "]"
@@ -105,8 +123,8 @@ SubProceso sala(s,boletas Por Referencia,butaca Por Referencia)
 	FinPara
 	
 FinSubProceso
-SubProceso sala1(s1,boletas,butaca)
-	para i=0 hasta boletas con paso 1 hacer
+SubProceso sala1(s1,boletas por referencia,butaca)
+	para i=0 hasta boletas-1 con paso 1 hacer
 		escribir "estos son nuestro asientos disponibles"
 		escribir " ________________________ "
 		escribir  "[",s1[0] "]  [", s1[1] "]  [", s1[2] "]  [",s1[3] "]  [",s1[4] "]"
@@ -124,7 +142,7 @@ SubProceso sala1(s1,boletas,butaca)
 		leer butaca
 		butaca= butaca-1
 		repetir
-			si(s[butaca] == 0) Entonces
+			si(s1[butaca] == 0) Entonces
 				escribir "lugar reservado"
 				leer butaca 
 				butaca= butaca-1
@@ -135,19 +153,19 @@ SubProceso sala1(s1,boletas,butaca)
 			
 		Mientras Que validacion=Verdadero
 		
-		si(s[butaca] <> 0) entonces
-			s[butaca]=0
+		si(s1[butaca] <> 0) entonces
+			s1[butaca]=0
 			escribir "asiento reservado con exito: ", (butaca +1)
 		FinSi
 	FinPara
 FinSubProceso
 SubProceso sala2(s2,boletas,butaca)
-	para i=0 hasta boletas con paso 1 hacer
+	para i=0 hasta boletas-1 con paso 1 hacer
 		escribir "estos son nuestro asientos disponibles"
 		escribir " ________________________ "
 		escribir  "[",s2[0] "]  [", s2[1] "]  [", s2[2] "]  [",s2[3] "]  [",s2[4] "]"
 		escribir " ------------------------ "
-		escribir  "[",s2[5] "]  [", s[6] "]  [", s2[7] "]  [",s2[8] "]  [",s2[9] "]"
+		escribir  "[",s2[5] "]  [", s2[6] "]  [", s2[7] "]  [",s2[8] "]  [",s2[9] "]"
 		escribir " ------------------------ "
 		escribir  "[",s2[10] "]  [", s2[11] "]  [", s2[12] "]  [",s2[13] "]  [",s2[14] "]"
 		escribir " ------------------------ "
@@ -178,7 +196,7 @@ SubProceso sala2(s2,boletas,butaca)
 	FinPara
 FinSubProceso
 SubProceso sala3(s3,boletas ,butaca)
-	para i=0 hasta boletas con paso 1 hacer
+	para i=0 hasta boletas-1 con paso 1 hacer
 		escribir "estos son nuestro asientos disponibles"
 		escribir " ________________________ "
 		escribir  "[",s3[0] "]  [", s3[1] "]  [", s3[2] "]  [",s3[3] "]  [",s3[4] "]"
