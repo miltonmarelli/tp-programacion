@@ -1,6 +1,6 @@
 Proceso Cinepolis
 	
-	definir peli_t,peli_n,boletas,s,s1,s2,s3,s4,s5,s6,s7,butaca,horario,salir,MetodoDePago como entero 
+	definir peli_t,peli_n,boletas,s,s1,s2,s3,s4,s5,s6,s7,butaca,horario,salir,MetodoDePago,cant_boletas como entero 
 	definir rta como caracter
 	definir pelicula Como Caracter
 	dimension s[25], s1[25] ,s2[25], s3[25], s4[25], s5[25], s6[25], s7[25]
@@ -54,7 +54,6 @@ Proceso Cinepolis
 						leer peli
 					Mientras Que (peli < 0 o peli > 5)
 			FinSegun
-		finsi
 			segun peli hacer
 			    1:escribir ""
 				  escribir "       || *spiderman across the spiderverse* ||"
@@ -113,6 +112,7 @@ Proceso Cinepolis
 						escribir ""
 						escribir"|| *ingrese una opcion valida* ||"
 					sino 
+						cant_boletas= boletas
 						validacion<-falso 
 					FinSi
 				Mientras Que validacion=verdadero
@@ -173,13 +173,14 @@ Proceso Cinepolis
 					1:escribir "       ||         17hs                          ||"
 					2:escribir "       ||         22hs                          ||"
 					FinSegun
+					escribir   "       || CANTIDAD DE ENTRADAS: ", cant_boletas ,"               ||"
 					  escribir "       || METODO DE PAGO:                       ||"
 					Segun MetodoDePago Hacer
 					1:escribir "       ||         EFECTIVO                      ||"
 					2:escribir "       ||         TARJETA DE CREDITO            ||"
 					3:escribir "       ||         DEBITO                        ||"
 					FinSegun
-					Escribir "         ###########################################"
+					Escribir "       ###########################################"
 					
 				escribir ""
 				Escribir "       #################################################"
@@ -188,6 +189,8 @@ Proceso Cinepolis
 				escribir "       ||            ***********************          ||"
 				Escribir "       #################################################" 
 				leer rta
+			FinSi
+			
 		   	
 	Mientras Que (rta == "s") o ( salir == 0)
 FinProceso
