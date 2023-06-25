@@ -189,11 +189,13 @@ Proceso Cinepolis
 				escribir "       ||            ***********************          ||"
 				Escribir "       #################################################" 
 				leer rta
-			FinSi
-			
-		   	
-	Mientras Que (rta == "s") o ( salir == 0)
+				si (rta == "n") Entonces
+					salir=1
+				FinSi
+			finsi   	
+			Mientras Que( salir == 0)
 FinProceso
+
 //-----------------------------------------------------------------------------------
 Funcion salas(s,s1,s2,s3,s4,s5,s6,s7)
 	
